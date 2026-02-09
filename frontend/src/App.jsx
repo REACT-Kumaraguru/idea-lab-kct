@@ -1,14 +1,43 @@
-import { useState } from 'react'
-import './App.css'
-import { Hero } from './components/LandingCom/Hero'
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return(
+import Header from "./components/Header";
+import Listing from "./components/ComponentCom/Listing";
+import Cart from "./components/Cart";
+import Hero from "./pages/Hero";
+
+function Home() {
+  return (
     <>
-    <Hero />
+      <Header />
+      <Hero />
     </>
-  )
-  
+  );
 }
 
-export default App
+function App() {
+  const [cart, setCart] = useState([]);
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Home page with Header */}
+        <Route path="/" element={<Home />} />
+
+        {/* Products page (Listing) */}
+        <Route
+          path="/products"
+          element={<Listing cart={cart} setCart={setCart} />}
+        />
+
+        {/* Cart page */}
+        <Route
+          path="/cart"
+          element={<Cart cart={cart} setCart={setCart} />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
