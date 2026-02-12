@@ -7,6 +7,7 @@ import {
   Mail,
   Phone
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   useScrollAnimation();
@@ -43,16 +44,18 @@ const Hero = () => {
 
               {/* Buttons */}
               <div className="animate-on-scroll fade-in-up duration-1500 delay-300 ease-out flex flex-wrap gap-4 pt-4">
-                <button className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-base hover:bg-blue-800 transition-all shadow-sm flex items-center gap-2 hover:scale-105 hover:shadow-lg">
-                  Explore the Lab
-                  <ArrowRight className="w-4 h-4" />
+                  <Link
+                    to="/project"
+                    className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-base hover:bg-blue-800 transition-all shadow-sm flex items-center gap-2 hover:scale-105 hover:shadow-lg"
+                  >
+                    Submit Project
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
 
-                </button>
-
-                <button className="bg-white text-slate-700 border border-slate-300 px-8 py-4 rounded-lg font-semibold text-base hover:border-blue-700 hover:text-blue-700 transition-all hover:scale-105">
-                  Apply for Access
-                </button>
-              </div>
+                  <button className="bg-white text-slate-700 border border-slate-300 px-8 py-4 rounded-lg font-semibold text-base hover:border-blue-700 hover:text-blue-700 transition-all hover:scale-105">
+                    Apply for Access
+                  </button>
+                </div>
             </div>
 
             {/* Image */}
